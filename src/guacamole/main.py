@@ -37,56 +37,56 @@ class session:
     def list_schema_users(self):
         """Returns schema for user attributes"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/schema/userAttributes",
             params=self.params,
             verify=False
-        ).json(), indent=2)
+        ).json()
 
     def list_schema_groups(self):
         """Returns schema for group attributes"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/schema/userGroupAttributes",
             params=self.params,
             verify=False
-        ).json(), indent=2)
+        ).json()
 
     def list_schema_connections(self):
         """Returns schema for connection attributes"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/schema/connectionAttributes",
             params=self.params,
             verify=False
-        ).json(), indent=2)
+        ).json()
 
     def list_schema_sharing(self):
         """Returns schema for sharing attributes"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/schema/sharingProfileAttributes",
             params=self.params,
             verify=False
-        ).json(), indent=2)
+        ).json()
 
     def list_schema_connection_group(self):
         """Returns schema for connection group attributes"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/schema/connectionGroupAttributes",
             params=self.params,
             verify=False
-        ).json(), indent=2)
+        ).json()
 
     def list_schema_protocols(self):
         """Returns schema for protocols attributes"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/schema/protocols",
             params=self.params,
             verify=False
-        ).json(), indent=2)
+        ).json()
 
     def list_patches(self):
         """
@@ -94,21 +94,21 @@ class session:
         TODO: NEED TO EXPLORE FURTHER API CAPABILITIES FROM THIS PATH
         """
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/patches",
             params=self.params,
             verify=False
-        ).json(), indent=2)
+        ).json()
 
 
     def list_languages(self):
         """Returns available locales"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/languages",
             params=self.params,
             verify=False
-        ).json(), indent=2)
+        ).json()
 
     def detail_extensions(self):
         """
@@ -125,83 +125,83 @@ class session:
     def list_history_users(self):
         """Returns user history"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/history/users",
             params=self.params,
             verify=False
-        ).json(), indent=2)
+        ).json()
 
     def list_history_connections(self):
         """Returns user connections"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/history/connections",
             params=self.params,
             verify=False
-        ).json(), indent=2)
+        ).json()
 
     def list_users(self):
         """Returns users"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/users",
             params=self.params,
             verify=False
-        ).json(), indent=2)
+        ).json()
 
     def detail_user(self, username: str):
         """Returns users details"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/users/{username}",
             params=self.params,
             verify=False
-        ).json(), indent=2)
+        ).json()
 
     def detail_user_permissions(self, username: str):
         """Returns users permissions"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/users/{username}/permissions",
             params=self.params,
             verify=False
-        ).json(), indent=2)
+        ).json()
 
     def detail_user_effective_permissions(self, username: str):
         """Returns users efffective permissions"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/users/{username}/effectivePermissions",
             params=self.params,
             verify=False
-        ).json(), indent=2)
+        ).json()
 
     def detail_user_groups(self, username: str):
         """Returns users groups"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/users/{username}/userGroups",
             params=self.params,
             verify=False
-        ).json(), indent=2)
+        ).json()
 
     def detail_user_history(self, username: str):
         """Returns users history"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/users/{username}/history",
             params=self.params,
             verify=False
-        ).json(), indent=2)
+        ).json()
 
     def detail_self(self):
         """Returns current user details"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/self",
             params=self.params,
             verify=False
-        ).json(), indent=2)
+        ).json()
 
     def create_user(self, username: str, password: str, attributes: dict = {}):
         """Creates user"""
@@ -317,6 +317,7 @@ class session:
         else:
             return "Invalid Operation, requires (add or remove)"
 
+
     def update_user_permissions(self, username: str, operation: str = "add", cuser: bool = False, cusergroup: bool = False, cconnect: bool = False, cconnectgroup: bool = False, cshare: bool = False, admin: bool = False):
         """Change a user Connections"""
 
@@ -395,20 +396,20 @@ class session:
     def list_usergroups(self):
         """Returns user groups"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/userGroups",
             params=self.params,
             verify=False,
-        ).json(), indent=2)
+        ).json()
 
     def detail_usergroup(self, groupname: str):
         """Returns user groups"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/userGroups/{groupname}",
             params=self.params,
             verify=False,
-        ).json(), indent=2)
+        ).json()
 
     def update_usergroup_member(self, username: str, groupname: str, operation: str = "add"):
         """Assign to or Remove user from group"""
@@ -534,9 +535,14 @@ class session:
         else:
             return "Invalid Operation, requires (add or remove)"
 
-    def update_usergroup_connection(self, connection_id: int, groupname: str, operation: str = "add"):
+    def update_usergroup_connection(self, connection_id: int, groupname: str, operation: str = "add", isgroup: bool=False):
         """Assign to or Remove connection from group"""
 
+        if not isgroup:
+            path = f"/connectionPermissions/{str(connection_id)}"
+        elif isgroup:
+            path = f"/connectionGroupPermissions/{str(connection_id)}"
+            
         if operation == "add" or operation == "remove":
             return requests.patch(
                 f"{self.host}/api/session/data/{self.data_source}/userGroups/{groupname}/permissions",
@@ -545,7 +551,7 @@ class session:
                 json=[
                     {
                         "op": operation,
-                        "path": f"/connectionPermissions/{str(connection_id)}",
+                        "path": path,
                         "value": "READ"
                     }
                 ],
@@ -598,20 +604,20 @@ class session:
     def list_tunnels(self):
         """Returns tunnels"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/tunnels",
             verify=False,
             params=self.params,
-        ).json(), indent=2)
+        ).json()
 
     def detail_tunnels(self, tunnel_id: int):
         """Returns tunnels"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/tunnels/{str(tunnel_id)}/activeConnection/connection/sharingProfiles",
             verify=False,
             params=self.params,
-        ).json(), indent=2)
+        ).json()
 
     def list_connections(self, active: bool = False):
         """
@@ -624,11 +630,11 @@ class session:
         else:
             host = f"{self.host}/api/session/data/{self.data_source}/connections"
 
-        return json.dumps(requests.get(
+        return requests.get(
             host,
             verify=False,
             params=self.params,
-        ).json(), indent=2)
+        ).json()
 
     def detail_connection(self, identifier: int, option: str = None):
         """
@@ -647,11 +653,11 @@ class session:
         else:
             return "Invalid option, requires no entry or (params, history, or sharing)"
 
-        return json.dumps(requests.get(
+        return requests.get(
             host,
             verify=False,
             params=self.params,
-        ).json(), indent=2)
+        ).json()
 
     def kill_active_connection(self, connection_id: str):
         """Kill an active connection to a hosted system"""
@@ -979,38 +985,38 @@ class session:
     def list_connection_groups(self):
         """Returns all connection groups"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/connectionGroups",
             params=self.params,
             verify=False,
-        ).json(), indent=2)
+        ).json()
 
     def list_connection_group_connections(self):
         """Returns all connection groups connections"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/connectionGroups/ROOT/tree",
             params=self.params,
             verify=False,
-        ).json(), indent=2)
+        ).json()
 
     def details_connection_group(self, identifier: str):
         """Returns specific connection group"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/connectionGroups/{identifier}",
             params=self.params,
             verify=False,
-        ).json(), indent=2)
+        ).json()
 
     def details_connection_group_connections(self, identifier: str):
         """Returns specific connection group connections"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/connectionGroups/{identifier}/tree",
             params=self.params,
             verify=False,
-        ).json(), indent=2)
+        ).json()
 
     def create_connection_group(self, name: str, type: str, parent_identifier: int = None, attributes: dict = {}):
         """Creates a connection group"""
@@ -1068,20 +1074,20 @@ class session:
     def list_sharing_profile(self):
         """Returns sharing profiles"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/sharingProfiles",
             verify=False,
             params=self.params,
-        ).json(), indent=2)
+        ).json()
 
     def details_sharing_profile(self, sharing_id: int):
         """Returns sharing profiles"""
 
-        return json.dumps(requests.get(
+        return requests.get(
             f"{self.host}/api/session/data/{self.data_source}/sharingProfiles/{str(sharing_id)}",
             verify=False,
             params=self.params,
-        ).json(), indent=2)
+        ).json()
 
     def create_sharing_profile(self, identifier: int, name: str, parameters: dict = {}):
         """Creates connection sharing profile"""

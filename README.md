@@ -1,11 +1,13 @@
-# Guacamole Wrapper Package
+# Guacamole API client package
 
-[![pipeline status](https://gitlab.com/gacybercenter/open/guacamole-api-wrapper/badges/0.0.3/pipeline.svg)](https://gitlab.com/gacybercenter/open/guacamole-api-wrapper/-/commits/0.0.3)
-
-
-
+Based on [Guacamole API Wrapper](https://gitlab.com/gacybercenter/open/guacamole-api-wrapper)
 This is a simple package that allows you to take advantage of all
 currently available REST API calls within Apache Guacamole.
+
+## Changes
+- Return python object instead json strings.
+- 
+
 
 ## Overview
 
@@ -23,16 +25,10 @@ include:
 - **Sharing Profiles**  
     _list, create, delete_
 
-
-### Work in Progress
-
-- Code Enhancements
-- CI/CD for auto deployment
-
 ## Install
 
 ```
-pip install guacamole-api-wrapper
+pip install guacamole-api-koa
 ```
 
 ## Usage
